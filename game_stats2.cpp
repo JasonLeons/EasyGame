@@ -2,6 +2,9 @@
 // Demonstrates constants
 
 #include <iostream>
+#include <string>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 int main(int argc, char const *argv[])
@@ -57,10 +60,72 @@ int main(int argc, char const *argv[])
     cout << "So the adventurers split " << GOLD_PIECES << " gold pieces.";
     cout << leader << " held on to the extra " << (GOLD_PIECES % survivors) ;
     cout << " pieces to keep things fair of course.\n";
+    
+   
+    // Designers Networks
+    // Demonstrates logical operations
+
+    string username;
+    string password;
+    bool success;
+
+    cout << "\tGame Designer's Network\n";
+    do
+    {
+        cout << "Enter your username: ";
+        cin >> username;
+
+        cout << "Enter your password: ";
+        cin >> password;
+
+        if (username == "Leon" && password == "0988")
+        {
+            cout << "\nHey, Sid.";
+            success = true;
+        }
+
+        else if (username == "S.Miyamoto" && password == "mariobros")
+        {
+            cout << "\nHey, Luigi.";
+            success = true;
+        }
+        
+        else
+        {
+            cout << "\nSorry, wrong credentials. Try again.\n";
+            success = false;
+        }
+    } while (!success);
     */
 
-    cout << "Seven divided by three is " << 7 / 3 << endl;
-    cout << "Seven divided by three is " << 7.0 / 3 << endl;
-    cout << "Seven divided by three is " << 7.0 / 3.0 << endl;
+    srand(static_cast<unsigned int>(time(NULL)));
+    int randomNumber = rand() % 100 + 1;
+    int guess{}, tries{};
+    do
+    {
+        cout << "Enter a random number: ";
+        cin >> guess;
+        ++tries;
+
+        if (guess > randomNumber)
+        {
+            cout << "Too hight!\n";
+        }
+        else if (guess < randomNumber)
+        {
+            cout << "Too low!\n";
+        }
+        else
+        {
+            cout << "\nCongratulations! You guessed the number in " << tries << " tries.\n";
+            break;
+        }
+
+        if(tries >= 5){
+            cout << "You've reached the maximum number of tries. Better luck next time.\n";
+            break;  // Exit the loop if the player has reached the maximum number of tries.  // End the game here.  // If you want to keep playing, remove this line.  // This line makes the game end after 5 wrong guesses.  // If you want to keep playing, remove this line.  // This line makes the game end after 5 wrong guesses.  // If you want to keep playing, remove this line.  // This line makes the game end after 5 wrong guesses.  // If you want to keep playing, remove this line.  // This line makes the game end after 5 wrong guesses.  // If you want to keep playing, remove this line.  // This line makes the game end after 5 wrong guesses.  // If you want to keep playing, remove this line.
+        }
+    } while (guess != randomNumber);
+    
     return 0;
 }
