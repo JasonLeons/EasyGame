@@ -96,7 +96,7 @@ int main(int argc, char const *argv[])
             success = false;
         }
     } while (!success);
-    */
+    
 
     srand(static_cast<unsigned int>(time(NULL)));
     int randomNumber = rand() % 100 + 1;
@@ -126,6 +126,84 @@ int main(int argc, char const *argv[])
             break;  // Exit the loop if the player has reached the maximum number of tries.  // End the game here.  // If you want to keep playing, remove this line.  // This line makes the game end after 5 wrong guesses.  // If you want to keep playing, remove this line.  // This line makes the game end after 5 wrong guesses.  // If you want to keep playing, remove this line.  // This line makes the game end after 5 wrong guesses.  // If you want to keep playing, remove this line.  // This line makes the game end after 5 wrong guesses.  // If you want to keep playing, remove this line.  // This line makes the game end after 5 wrong guesses.  // If you want to keep playing, remove this line.
         }
     } while (guess != randomNumber);
+    
+
+    string word1 = "Game";
+    string word2("Over");
+    string word3(3, '!');
+
+    string phrase = word1 + " " + word2 + word3;
+    cout << "The phrase is " << phrase << endl;
+
+    cout << "The phrase has " << phrase.size() << " characters in it." << endl;
+    cout << "The character at position 0 is " << phrase[0] << endl;
+
+    cout << "Changing the character at position 1: " << phrase[1] << " to ";
+    phrase[1] = 'B';
+
+    cout << "The phrase is now: " << phrase << endl;
+
+    for (unsigned int i = 0; i < phrase.size(); i++)
+    {
+        cout << "Character at position " << i << " is " << phrase[i] << endl;
+    }
+
+    cout << "The sequece 'Over' begin at location ";
+    cout << phrase.find("Over") << endl;
+
+    if (phrase.find("eggplant") == string::npos)
+    {
+        cout << "'eggplant' is not in the phrase." << endl;
+    }
+
+    phrase.erase(4, 5);
+    cout << "The phrase is now: " << phrase << endl;
+
+    phrase.erase(4);
+    cout << "The phrase is now: " << phrase << endl;
+
+    phrase.erase();
+    cout << "The phrase is now: " << phrase << endl;
+
+    if(phrase.empty()) cout << "The phrase is empty." << endl;
+    */
+
+    const int MAX_ITEMS = 10;
+    string inventory[MAX_ITEMS];
+
+    int numItems = 0;
+    inventory[numItems++] = "sword";
+    inventory[numItems++] = "armor";
+    inventory[numItems++] = "shield";
+
+    cout << "Your items: " << endl;
+    for (int i = 0; i < numItems; i++)
+    {
+        cout << inventory[i] << endl;
+    }
+
+    cout << "You trade sword for a battle: " << endl;
+    inventory[0] = "battle";
+    cout << "Your items: " << endl;
+    for (size_t i = 0; i < numItems; i++)
+    {
+        cout << inventory[i] << endl;
+    }
+
+    cout << "The item name '" << inventory[0] << "' has ";
+    cout << inventory[0].size() << " letters in it." << endl;
+    
+    cout << "You find a healing potion.";
+    if (numItems > MAX_ITEMS)
+    {
+        inventory[numItems++] = "healing potion";
+    }
+    else cout << "You have too many items and can't carry another.";
+    cout << "Your items: " << endl;
+    for (int i = 0; i < numItems; i++)
+    {
+        cout << inventory[i] << endl;
+    }
     
     return 0;
 }
