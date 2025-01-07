@@ -166,7 +166,7 @@ int main(int argc, char const *argv[])
     cout << "The phrase is now: " << phrase << endl;
 
     if(phrase.empty()) cout << "The phrase is empty." << endl;
-    */
+
 
     const int MAX_ITEMS = 10;
     string inventory[MAX_ITEMS];
@@ -204,6 +204,36 @@ int main(int argc, char const *argv[])
     {
         cout << inventory[i] << endl;
     }
+    */
+
+    const int ROWS = 3;
+    const int COLS = 3;
+    char board[ROWS][COLS] = {{'O', 'X', 'O'},
+                            {' ', 'X', 'X'},
+                            {'X','O', 'O'}};
     
+    cout << "Here's the tic-tac-toe board: " << endl;
+    for (size_t i = 0; i < ROWS; i++)
+    {
+        for (int j = 0; j < COLS; j++)
+        {
+            cout << board[i][j];
+        }
+        cout << endl;
+    }
+    cout << "'X' moves to the empty location." << endl;
+    board[1][0] ='X';
+
+    cout << "Here's the tic-tac-toe board: " << endl;
+    for (size_t i = 0; i < ROWS; i++)
+    {
+        for (int j = 0; j < COLS; j++)
+        {
+            cout << board[i][j];
+        }
+        cout << endl;
+    }
+
+    cout << "\n wins!";
     return 0;
 }
